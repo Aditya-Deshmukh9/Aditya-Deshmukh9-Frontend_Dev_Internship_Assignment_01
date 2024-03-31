@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  border: #B0BABF;
+}
+
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center font-semibold gap-2 border border-[#B0BABF] px-4 py-2 rounded-md
+  }
+}
+
+/* Font - Inter
+Font color (Heading) - #1E2022, Font color (Subtitle) - #989090
+Background color - #ffffff
+Logo color - #CF2D2D
+Stroke/border color - #B0BABF */
