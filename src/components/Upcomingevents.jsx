@@ -55,7 +55,7 @@ function Upcomingevents() {
         </p>
         <p className="underline">See all</p>
       </div>
-      <div className="scroll grid grid-cols-1 content-center sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ml-5">
         {data &&
           data.map((event, index) => <BoxUpcomming {...event} key={index} />)}
         {loading ? (

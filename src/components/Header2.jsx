@@ -40,7 +40,7 @@ function Header2() {
         Mumbai, India
         <ChevronRight size={17} />
       </div>
-      <div className="flex md:w-3/4 items-center justify-start md:gap-x-5 overflow-y-auto no-scrollbar cursor-pointer">
+      <div className="flex md:w-3/4 items-center px-1 justify-start gap-x-2 md:gap-x-5 overflow-y-auto no-scrollbar cursor-pointer">
         {navLink.map((e, i) => (
           <a key={i} className="ml-3 md:ml-5 text-nowrap" href={e.link}>
             {e.text}
