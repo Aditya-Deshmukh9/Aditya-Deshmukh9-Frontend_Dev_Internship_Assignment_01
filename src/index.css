@@ -23,6 +23,22 @@ body {
   }
 }
 
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
 /* Font - Inter
 Font color (Heading) - #1E2022, Font color (Subtitle) - #989090
 Background color - #ffffff

@@ -48,14 +48,14 @@ function Upcomingevents() {
   };
 
   return (
-    <div className="h-[600px] text-black mb-10 relative z-20 px-24">
+    <div className="h-[600px] text-black mb-10 relative z-20 px-4 md:px-24">
       <div className="flex items-center mb-4 py-1 justify-between">
-        <p className="flex items-center font-semibold text-xl gap-x-2">
+        <p className="flex items-center font-semibold md:text-xl gap-x-2">
           Upcoming shows <ArrowRight />
         </p>
         <p className="underline">See all</p>
       </div>
-      <div className="scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="scroll grid grid-cols-1 content-center sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {data &&
           data.map((event, index) => <BoxUpcomming {...event} key={index} />)}
         {loading ? (

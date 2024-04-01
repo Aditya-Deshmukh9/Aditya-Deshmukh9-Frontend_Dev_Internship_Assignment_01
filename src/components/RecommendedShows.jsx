@@ -8,7 +8,7 @@ import GlobalApi from "../Utilts/GlobalApi";
 
 function RecommendedShows() {
   const [recomdata, setRecomdata] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -38,20 +38,20 @@ function RecommendedShows() {
   };
 
   return (
-    <div className="h-[550px] -mt-52 text-white relative z-20 px-24">
-      <div className="flex items-center mb-4 py-1 justify-between">
-        <p className="flex items-center font-semibold text-xl gap-x-2">
+    <div className="h-[550px] -mt-80 md:-mt-52 text-white relative z-20 md:px-24">
+      <div className="flex items-center mb-4 py-1 mx-4 justify-between">
+        <p className="flex items-center font-semibold md:text-xl gap-x-2">
           Recommended shows <ArrowRight />
         </p>
         <p className="underline">See all</p>
       </div>
 
-      <div>
+      <div className="ml-4">
         <Swiper
           lazy="true"
           watchSlidesProgress={true}
           slidesPerView={1}
-          spaceBetween={20}
+          spaceBetween={2}
           pagination={{ clickable: true }}
           breakpoints={{
             "@0.00": { slidesPerView: 1, spaceBetween: 10 },

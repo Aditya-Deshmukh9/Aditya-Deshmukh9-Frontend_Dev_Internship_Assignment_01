@@ -1,13 +1,20 @@
-import { AlignJustify, Heart, Search } from "lucide-react";
+import { AlignJustify, Heart, Search, UserRound } from "lucide-react";
 import React from "react";
 
 function Header() {
   return (
-    <div className="flex items-center justify-between px-8 py-5">
+    <div className="flex items-center justify-between px-4 md:px-8 py-5">
       <h1 className="text-[#CF2D2D] text-2xl font-bold">BookUsNow</h1>
 
+      {/* In mobile */}
+      <div className="flex gap-x-2 items-center md:hidden">
+        <Search />
+        <Heart />
+        <UserRound />
+      </div>
+
       {/* Middle */}
-      <div className="flex items-center gap-4">
+      <div className="hidden md:flex items-center gap-4">
         <button className="bg-black text-white px-4 py-2 rounded-md flex items-center gap-2">
           <AlignJustify size={18} />
           <span>Categories</span>
@@ -28,7 +35,7 @@ function Header() {
       </div>
 
       {/* End */}
-      <div className="flex gap-4">
+      <div className="hidden md:flex gap-4">
         <button className="btn-primary">
           <Heart size={18} /> Favorites
         </button>

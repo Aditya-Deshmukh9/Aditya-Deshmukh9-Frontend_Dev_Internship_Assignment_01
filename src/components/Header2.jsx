@@ -34,15 +34,15 @@ function Header2() {
   ];
 
   return (
-    <div className="flex justify-between px-8 pb-4">
-      <div className="flex w-1/4 justify-start items-center gap-2 font-medium">
+    <div className="flex justify-between md:px-8 pb-4">
+      <div className="hidden md:flex w-1/4 justify-start items-center gap-2 font-medium">
         <MapPin size={17} />
         Mumbai, India
         <ChevronRight size={17} />
       </div>
-      <div className="flex w-3/4 items-center justify-start gap-x-5">
+      <div className="flex md:w-3/4 items-center justify-start md:gap-x-5 overflow-y-auto no-scrollbar cursor-pointer">
         {navLink.map((e, i) => (
-          <a key={i} className="capitalize ml-5" href={e.link}>
+          <a key={i} className="ml-3 md:ml-5 text-nowrap" href={e.link}>
             {e.text}
           </a>
         ))}
