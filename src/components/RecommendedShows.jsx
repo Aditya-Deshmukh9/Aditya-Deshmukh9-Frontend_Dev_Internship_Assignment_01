@@ -1,5 +1,5 @@
 import { ArrowRight, Loader } from "lucide-react";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import EventBox from "./EventBox";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,8 +10,7 @@ function RecommendedShows() {
   const [recomdata, setRecomdata] = useState([]);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(false);
-  const [num, setnum] = useState(8);
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getRecomShow();
@@ -21,26 +20,20 @@ function RecommendedShows() {
     GlobalApi.RecommendedEvents(page)
       .then((res) => {
         setRecomdata((prevData) => [...prevData, ...res.data.events]);
-        setloading(false);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error(error);
+        console.error("Error fetching recommended events:", error);
         setError(true);
+        setLoading(false);
       });
   };
 
-  if (error === true) {
-    return <h1>Not Found</h1>;
-  }
-
   const handleSlideChange = (swiper) => {
-    const activeIndex = swiper.activeIndex;
-    if (activeIndex === num) {
-      // Call API and increment page number when the first slide is active
-
+    const { isEnd } = swiper;
+    if (isEnd && !loading) {
+      console.log(true);
       setPage((prevPage) => prevPage + 1);
-      setloading(true);
-      setnum(num + 7);
     }
   };
 
@@ -59,26 +52,12 @@ function RecommendedShows() {
           watchSlidesProgress={true}
           slidesPerView={1}
           spaceBetween={20}
-          pagination={{
-            clickable: true,
-          }}
+          pagination={{ clickable: true }}
           breakpoints={{
-            "@0.00": {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            "@0.75": {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            "@1.00": {
-              slidesPerView: 3,
-              spaceBetween: 40,
-            },
-            "@1.50": {
-              slidesPerView: 4,
-              spaceBetween: 50,
-            },
+            "@0.00": { slidesPerView: 1, spaceBetween: 10 },
+            "@0.75": { slidesPerView: 2, spaceBetween: 20 },
+            "@1.00": { slidesPerView: 3, spaceBetween: 40 },
+            "@1.50": { slidesPerView: 4, spaceBetween: 50 },
           }}
           className="mySwiper"
           onSlideChange={(swiper) => handleSlideChange(swiper)}
@@ -95,7 +74,9 @@ function RecommendedShows() {
           )}
         </Swiper>
       </div>
+      {error && <h1>Failed to fetch recommended events.</h1>}
     </div>
   );
 }
+
 export default RecommendedShows;
